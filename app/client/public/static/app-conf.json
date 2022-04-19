@@ -109,7 +109,7 @@
             {
                 "type": "VECTOR",
                 "name": "global_pipelines",
-                "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=workspace1:global_pipelines&outputFormat=application/json&srsname=EPSG:3857",
+                "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=workspace1:global_pipelines_complete&outputFormat=application/json&srsname=EPSG:3857",
                 "group": "oil",
                 "queryable": true,
                 "displayInLegend": true,
@@ -145,7 +145,7 @@
                     {
                         "type": "VECTOR",
                         "name": "global_pipelines",
-                        "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=workspace1:global_pipelines&outputFormat=application/json&srsname=EPSG:3857",
+                        "url": "./geoserver/wfs?service=WFS&version=1.1.0&request=GetFeature&typename=workspace1:global_pipelines_complete&outputFormat=application/json&srsname=EPSG:3857",
                         "group": "oil",
                         "queryable": true,
                         "displayInLegend": true,
