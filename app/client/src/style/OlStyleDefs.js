@@ -621,7 +621,7 @@ export const layersStylePropFn = {
       return propertyValue;
     }
   },
-  epa_refineries: {
+  epa_refineries2: {
     iconScaleFn: propertyValue => {
       return getIconScaleValue(propertyValue, 0.0000001, 0.2, 1.2);
     }
@@ -654,6 +654,11 @@ export const layersStylePropFn = {
       return getRadiusValue(propertyValue, 0.026);
     }
   },
+  other_refineries: {
+    iconScaleFn: propertyValue => {
+      return getIconScaleValue(propertyValue, 300000, 0.5, 2);
+    }
+  },
   us_refineries: {
     iconScaleFn: propertyValue => {
       return getIconScaleValue(propertyValue, 300000, 0.5, 2);
@@ -661,7 +666,7 @@ export const layersStylePropFn = {
   },
   us_refineries2: {
     iconScaleFn: propertyValue => {
-      return getIconScaleValue(propertyValue, 300000, 0.4, 1.8);
+      return getIconScaleValue(propertyValue, 300000, 0.5, 2);
     }
   },
   GiantOilFields: {
