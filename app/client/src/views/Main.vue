@@ -359,10 +359,18 @@ export default {
   },
   methods: {
     changeNavbarGroup(navbarGroup) {
+      let region = this.activeLayerGroup.region;
+      if (['3', '1'].includes(this.$appConfig.app.customNavigationScheme)) {
+        region = 'default';
+      }
       this.$router.push({
-        path: `/${navbarGroup.name}/${this.activeLayerGroup.region}`
+        path: `/${navbarGroup.name}/${region}`
       });
-      EventBus.$emit('noMapReset');
+      if (this.$appConfig.app.customNavigationScheme === 2) {
+        EventBus.$emit('noMapReset');
+      } else {
+        EventBus.$emit('resetMap');
+      }
     },
     goToHome() {
       EventBus.$emit('resetMap');
@@ -373,8 +381,12 @@ export default {
         groupNames.indexOf(defaultActiveGroup) !== -1
           ? defaultActiveGroup
           : groupNames[0];
+      let region = this.activeLayerGroup.region;
+      if (['3', '1'].includes(this.$appConfig.app.customNavigationScheme)) {
+        region = 'default';
+      }
       this.$router.push({
-        path: `/${navbarGroupName}/${this.activeLayerGroup.region}`
+        path: `/${navbarGroupName}/${region}`
       });
     },
     resetMap() {
@@ -384,7 +396,10 @@ export default {
       window.open(this.$appConfig.app.projectWebsite, '_blank');
     },
     zoomToLocation() {
-      if (this.region === 'local') {
+      if (
+        this.region === 'local' &&
+        this.$appConfig.app.customNavigationScheme !== '3'
+      ) {
         EventBus.$emit('zoomToLocation');
       }
     },
@@ -415,8 +430,17 @@ export default {
       this.$router.push({
         path: `/${this.activeLayerGroup.navbarGroup}/${region.name}`
       });
-      if (region.name === 'local') {
+      if (
+        region.name === 'local' &&
+        this.$appConfig.app.customNavigationScheme !== '3'
+      ) {
         EventBus.$emit('zoomToLocation');
+      }
+      if (
+        region.name === 'global' &&
+        this.$appConfig.app.customNavigationScheme === '3'
+      ) {
+        EventBus.$emit('resetMap');
       }
     },
     hasRegion(region) {

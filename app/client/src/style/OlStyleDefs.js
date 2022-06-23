@@ -62,6 +62,30 @@ export function getFeatureHighlightStyle() {
   ];
 }
 
+export function getSearchHighlightStyle() {
+  return [
+    new OlStyle({
+      fill: new OlFill({
+        color: 'rgba(255,0,0,0.2)'
+      }),
+      stroke: new OlStroke({
+        color: '#FF0000',
+        width: 3
+      }),
+      image: new OlCircle({
+        radius: 8,
+        stroke: new OlStroke({
+          color: '#FF0000',
+          width: 3
+        }),
+        fill: new OlFill({
+          color: 'rgba(255,0,0,0.2)'
+        })
+      })
+    })
+  ];
+}
+
 /**
  * Style used for popup selected feature highlight
  */
@@ -597,7 +621,7 @@ export const layersStylePropFn = {
       return propertyValue;
     }
   },
-  epa_refineries: {
+  epa_refineries2: {
     iconScaleFn: propertyValue => {
       return getIconScaleValue(propertyValue, 0.0000001, 0.2, 1.2);
     }
@@ -605,14 +629,14 @@ export const layersStylePropFn = {
   cancelled_pipelines: {
     strokeColor: propertyValue => propertyValue
   },
-  coal_global2: {
+  coal_global: {
     iconScaleFn: propertyValue => {
-      return getIconScaleValue(propertyValue, 1000, 0.4, 1.4);
+      return getIconScaleValue(propertyValue, 1000, 0.5, 1.4);
     }
   },
-  gas2: {
+  gas: {
     iconScaleFn: propertyValue => {
-      return getIconScaleValue(propertyValue, 1000, 0.2, 1.4);
+      return getIconScaleValue(propertyValue, 1400, 0.3, 1.4);
     }
   },
   oil: {
@@ -630,6 +654,11 @@ export const layersStylePropFn = {
       return getRadiusValue(propertyValue, 0.026);
     }
   },
+  other_refineries: {
+    iconScaleFn: propertyValue => {
+      return getIconScaleValue(propertyValue, 300000, 0.5, 2);
+    }
+  },
   us_refineries: {
     iconScaleFn: propertyValue => {
       return getIconScaleValue(propertyValue, 300000, 0.5, 2);
@@ -637,7 +666,7 @@ export const layersStylePropFn = {
   },
   us_refineries2: {
     iconScaleFn: propertyValue => {
-      return getIconScaleValue(propertyValue, 300000, 0.4, 1.8);
+      return getIconScaleValue(propertyValue, 300000, 0.5, 2);
     }
   },
   GiantOilFields: {
