@@ -414,7 +414,7 @@ export default {
         _corporateNetworkSelected = 600;
       } else if (winWidth < 1300) {
         // Values for small screens (mini - tables or low resolutions)
-        _default = 350;
+        _default = 380;
         _corporateNetworkSelected = 350;
       } else {
         // Values for normal screens (default)
